@@ -1,0 +1,92 @@
+
+  :root {
+    --bg: #f3f5f7;
+    --panel: #ffffff;
+    --ink: #1b2430;
+    --muted: #5d6b7a;
+    --line: #d5dce3;
+    --tts: #1f6f8b;
+    --stt: #b5413a;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12171d;
+      --panel: #1b222b;
+      --ink: #e8edf2;
+      --muted: #93a1b0;
+      --line: #2e3844;
+      --tts: #5cb8d6;
+      --stt: #f08a82;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2rem 1rem;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+  main { max-width: 760px; margin: 0 auto; display: grid; gap: 1.5rem; }
+  h1 { margin: 0; font-size: 1.6rem; }
+  .intro { margin: 0.25rem 0 0; color: var(--muted); }
+  section {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  #tts { border-top: 4px solid var(--tts); }
+  #stt { border-top: 4px solid var(--stt); }
+  h2 { margin: 0 0 0.25rem; font-size: 1.2rem; }
+  .hint { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
+  label { display: block; font-size: 0.85rem; color: var(--muted); margin: 0.75rem 0 0.25rem; }
+  textarea, select, input[type="range"] { width: 100%; }
+  textarea, select {
+    font: inherit;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.6rem;
+  }
+  textarea { min-height: 120px; resize: vertical; }
+  .row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .row > div { flex: 1 1 140px; }
+  .actions { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+  button {
+    font: inherit;
+    font-weight: 600;
+    border: 0;
+    border-radius: 6px;
+    padding: 0.6rem 1.1rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  #tts button { background: var(--tts); }
+  #stt button { background: var(--stt); }
+  #tts button.secondary, #stt button.secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  button:disabled { opacity: 0.45; cursor: not-allowed; }
+  button:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 3px solid var(--tts);
+    outline-offset: 2px;
+  }
+  .status { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); min-height: 1.4em; }
+  .listening { color: var(--stt); font-weight: 600; }
+  #transcript {
+    min-height: 140px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.75rem;
+    white-space: pre-wrap;
+  }
+  #interim { color: var(--muted); font-style: italic; }
+  .unsupported { color: var(--stt); font-weight: 600; }

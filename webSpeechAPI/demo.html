@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Speech API demo</title>
+<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<main>
+  <header>
+    <h1>Web Speech API demo</h1>
+    <p class="intro">Type text and hear it spoken, or speak and see it written. Works best in Chrome, Edge or Safari.</p>
+  </header>
+
+  <!-- TEXT TO SPEECH -->
+  <section id="tts">
+    <h2>Text to speech</h2>
+    <p class="hint">Write something, pick a voice and press Speak.</p>
+
+    <label for="ttsText">Text</label>
+    <textarea id="ttsText">Hello! This is a demo of the Web Speech API speaking out loud.</textarea>
+
+    <label for="voiceSelect">Voice</label>
+    <select id="voiceSelect"></select>
+
+    <div class="row">
+      <div>
+        <label for="rate">Speed: <span id="rateVal">1</span></label>
+        <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+      </div>
+      <div>
+        <label for="pitch">Pitch: <span id="pitchVal">1</span></label>
+        <input type="range" id="pitch" min="0" max="2" step="0.1" value="1">
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="speakBtn">Speak</button>
+      <button id="pauseBtn" class="secondary">Pause</button>
+      <button id="resumeBtn" class="secondary">Resume</button>
+      <button id="stopBtn" class="secondary">Stop</button>
+    </div>
+    <div class="status" id="ttsStatus" role="status"></div>
+  </section>
+
+  <!-- SPEECH TO TEXT -->
+  <section id="stt">
+    <h2>Speech to text</h2>
+    <p class="hint">Press Start, allow microphone access and talk.</p>
+
+    <label for="langSelect">Language</label>
+    <select id="langSelect">
+      <option value="en-US">English (US)</option>
+      <option value="en-GB">English (UK)</option>
+      <option value="it-IT">Italiano</option>
+      <option value="fr-FR">Français</option>
+      <option value="de-DE">Deutsch</option>
+      <option value="es-ES">Español</option>
+    </select>
+
+    <label>Transcript</label>
+    <div id="transcript" aria-live="polite"><span id="final"></span><span id="interim"></span></div>
+
+    <div class="actions">
+      <button id="startBtn">Start listening</button>
+      <button id="stopListenBtn" class="secondary" disabled>Stop</button>
+      <button id="clearBtn" class="secondary">Clear</button>
+    </div>
+    <div class="status" id="sttStatus" role="status"></div>
+  </section>
+</main>
+<script src="script.js"></script>
+</script>
+</body>
+</html>
