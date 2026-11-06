@@ -237,7 +237,7 @@ export default function App() {
           disabled={ttsStatus.includes("Loading") ||
             ttsStatus.startsWith("Ready")}
         >
-          Load Kokoro
+          Load Piper
         </button>
 
         <hr />
